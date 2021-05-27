@@ -1,0 +1,49 @@
+{
+  "id": 1,
+  "name": "Almed",
+  "cpf": "9834759475",
+  "email": "marcia@gmail.com",
+  "telefone": "9324873859",
+  "pedidos":
+  [
+    {
+      "id": 1,
+      "produtos": [
+        {
+          "id":1,
+          "descricao": "camisa",
+          "cor": "azul",
+          "quantidade": 1,
+          "preco": "100.00"
+        },
+        {
+          "id":2,
+          "descricao": "calça ",
+          "cor": "azul",
+          "quantidade": 2,
+          "preco": "100.00"
+        }
+      ],
+      "valorTotal": "200.00"
+    },
+    {
+      "id": 2,
+      "produtos": [
+        {
+          "id":1,
+          "descricao": "camisa",
+          "cor": "azul",
+          "quantidade": 1,
+          "preco": "200.00"
+        },
+        {
+          "id":2,
+          "descricao": "calça ",
+          "cor": "azul",
+          "quantidade": 4,
+          "preco": "100.00"
+        }
+      ]
+    }
+  ]
+}
