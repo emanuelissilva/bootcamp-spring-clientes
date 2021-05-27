@@ -1,7 +1,8 @@
 package com.bootcamp.clientesLoja.service;
 
-import com.bootcamp.clientesLoja.dtos.Cliente;
-import com.bootcamp.clientesLoja.dtos.Pedido;
+import com.bootcamp.clientesLoja.controller.dtos.PedidoDTO;
+import com.bootcamp.clientesLoja.domain.Cliente;
+import com.bootcamp.clientesLoja.domain.Pedido;
 import com.bootcamp.clientesLoja.repositories.IClienteRepository;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,9 @@ public class ClienteServiceImpl implements ClienteServiceInterface{
         return clienteRepository.encontraPedidosPorIdDoCliente(id);
     }
 
-    public Pedido inserePedido(Integer id, Pedido pedido) {
-        return clienteRepository.adicionaPedido(id, pedido);
+    public Pedido inserePedido(PedidoDTO pedidoDTO) {
+        Pedido pedido = pedidoDTO.getPedido();
+        Integer clienteId = pedidoDTO.getClienteId();
+        return clienteRepository.adicionaPedido(clienteId, pedido);
     }
 }

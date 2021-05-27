@@ -1,7 +1,7 @@
 package com.bootcamp.clientesLoja.repositories;
 
-import com.bootcamp.clientesLoja.dtos.Cliente;
-import com.bootcamp.clientesLoja.dtos.Pedido;
+import com.bootcamp.clientesLoja.domain.Cliente;
+import com.bootcamp.clientesLoja.domain.Pedido;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.bootcamp.clientesLoja.dtos;
+package com.bootcamp.clientesLoja.domain;
 
 public class Produto {
     private int id;

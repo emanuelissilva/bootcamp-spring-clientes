@@ -1,7 +1,8 @@
 package com.bootcamp.clientesLoja.controller;
 
-import com.bootcamp.clientesLoja.dtos.Cliente;
-import com.bootcamp.clientesLoja.dtos.Pedido;
+import com.bootcamp.clientesLoja.controller.dtos.PedidoDTO;
+import com.bootcamp.clientesLoja.domain.Cliente;
+import com.bootcamp.clientesLoja.domain.Pedido;
 import com.bootcamp.clientesLoja.service.ClienteServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,9 +30,9 @@ public class ClienteController {
     }
 
     @PostMapping("/pedido")
-    ResponseEntity inserePedidoPorClienteId (@RequestBody Pedido pedido, @RequestParam Integer id) {
+    ResponseEntity inserePedidoPorClienteId (@RequestBody PedidoDTO pedidoDTO) {
 
-        return new ResponseEntity(clienteServiceImpl.inserePedido(id, pedido), HttpStatus.OK);
+        return new ResponseEntity(clienteServiceImpl.inserePedido(pedidoDTO), HttpStatus.OK);
     }
 
     @GetMapping("/pedido")

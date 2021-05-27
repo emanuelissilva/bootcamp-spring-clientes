@@ -1,4 +1,4 @@
-package com.bootcamp.clientesLoja.dtos;
+package com.bootcamp.clientesLoja.domain;
 
 import java.util.ArrayList;
 import java.util.List;
