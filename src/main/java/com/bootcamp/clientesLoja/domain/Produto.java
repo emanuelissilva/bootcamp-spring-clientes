@@ -1,13 +1,13 @@
-package com.bootcamp.clientesLoja.dtos;
+package com.bootcamp.clientesLoja.domain;
 
-public class ProdutoDTO {
+public class Produto {
     private int id;
     private String descricao;
     private String cor;
     private int quantidade;
     private Double preco;
 
-    public ProdutoDTO(int id, String descricao, String cor, int quantidade, Double preco) {
+    public Produto(int id, String descricao, String cor, int quantidade, Double preco) {
         this.id = id;
         this.descricao = descricao;
         this.cor = cor;
