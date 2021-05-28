@@ -18,20 +18,20 @@ public class ClienteServiceImpl implements ClienteServiceInterface {
     }
 
     public Cliente salvaCliente(Cliente cliente) {
-        return clienteRepository.salva(cliente);
+        return clienteRepository.save(cliente);
     }
 
     public Cliente getClienteById(Integer id) {
-        return clienteRepository.encontraPorId(id);
+        return clienteRepository.findById(id);
     }
 
     public List<Pedido> getPedidos(Integer id) {
-        return clienteRepository.encontraPedidosPorIdDoCliente(id);
+        return clienteRepository.findPedidosById(id);
     }
 
     public Pedido inserePedido(PedidoDTO pedidoDTO) {
         Pedido pedido = pedidoDTO.getPedido();
         Integer clienteId = pedidoDTO.getClienteId();
-        return clienteRepository.adicionaPedido(clienteId, pedido);
+        return clienteRepository.addPedido(clienteId, pedido);
     }
 }

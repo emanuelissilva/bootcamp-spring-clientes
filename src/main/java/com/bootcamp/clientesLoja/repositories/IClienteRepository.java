@@ -6,11 +6,15 @@ import com.bootcamp.clientesLoja.domain.Pedido;
 import java.util.List;
 
 public interface IClienteRepository {
-    Cliente encontraPorId(Integer id);
+    Cliente findById(Integer id);
 
-    Cliente salva(Cliente cliente);
+    Cliente save(Cliente cliente);
 
-    Pedido adicionaPedido(Integer idCliente, Pedido pedido);
+    Cliente update(Cliente cliente);
 
-    List<Pedido> encontraPedidosPorIdDoCliente(Integer id);
+    Cliente delete(Integer idCliente);
+
+    Pedido addPedido(Integer idCliente, Pedido pedido);
+
+    List<Pedido> findPedidosById(Integer id);
 }
