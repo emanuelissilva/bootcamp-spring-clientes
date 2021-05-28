@@ -2,8 +2,6 @@ package com.bootcamp.clientesLoja.controller;
 
 import com.bootcamp.clientesLoja.controller.dtos.PedidoDTO;
 import com.bootcamp.clientesLoja.domain.Cliente;
-import com.bootcamp.clientesLoja.domain.Pedido;
-import com.bootcamp.clientesLoja.service.ClienteServiceImpl;
 import com.bootcamp.clientesLoja.service.ClienteServiceInterface;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

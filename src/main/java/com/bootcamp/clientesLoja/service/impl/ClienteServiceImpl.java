@@ -1,14 +1,37 @@
 package com.bootcamp.clientesLoja.service.impl;
 
-import com.bootcamp.clientesLoja.service.ClienteService;
-import org.springframework.http.ResponseEntity;
+import com.bootcamp.clientesLoja.controller.dtos.PedidoDTO;
+import com.bootcamp.clientesLoja.domain.Cliente;
+import com.bootcamp.clientesLoja.domain.Pedido;
+import com.bootcamp.clientesLoja.repositories.IClienteRepository;
+import com.bootcamp.clientesLoja.service.ClienteServiceInterface;
+import org.springframework.stereotype.Service;
 
-public class ClienteServiceImpl implements ClienteService {
-    @Override
-    public ResponseEntity consultaPedidosPorCliente() {
-        FileReader reader = new FileReader(jsonFile);
+import java.util.List;
 
-        JSONObject jsonObject = (JSONObject) new JSONParser().parse(reader);
-        return null;
+@Service
+public class ClienteServiceImpl implements ClienteServiceInterface {
+    private IClienteRepository clienteRepository;
+
+    public ClienteServiceImpl(IClienteRepository clienteRepository) {
+        this.clienteRepository = clienteRepository;
+    }
+
+    public Cliente salvaCliente(Cliente cliente) {
+        return clienteRepository.salva(cliente);
+    }
+
+    public Cliente getClienteById(Integer id) {
+        return clienteRepository.encontraPorId(id);
+    }
+
+    public List<Pedido> getPedidos(Integer id) {
+        return clienteRepository.encontraPedidosPorIdDoCliente(id);
+    }
+
+    public Pedido inserePedido(PedidoDTO pedidoDTO) {
+        Pedido pedido = pedidoDTO.getPedido();
+        Integer clienteId = pedidoDTO.getClienteId();
+        return clienteRepository.adicionaPedido(clienteId, pedido);
     }
 }
