@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class ClienteRepositoryImpl implements IClienteRepository{
+public class ClienteRepositoryJsonImpl implements IClienteRepository{
     @Override
     public Cliente findById(Integer id) {
         List<Cliente> clientes = loadClientesDatabase();

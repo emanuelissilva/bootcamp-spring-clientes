@@ -3,7 +3,6 @@ package com.bootcamp.clientesLoja.controller;
 import com.bootcamp.clientesLoja.controller.dtos.PedidoDTO;
 import com.bootcamp.clientesLoja.domain.Cliente;
 import com.bootcamp.clientesLoja.service.ClienteServiceInterface;
-import org.json.simple.parser.ParseException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +19,7 @@ public class ClienteController {
     }
 
     @PostMapping
-    ResponseEntity insereCliente(@RequestBody Cliente cliente) throws IOException, ParseException {
+    ResponseEntity insereCliente(@RequestBody Cliente cliente){
 
         return new ResponseEntity(clienteService.salvaCliente(cliente), HttpStatus.OK);
     }
@@ -29,11 +28,13 @@ public class ClienteController {
     ResponseEntity getCliente(@RequestParam Integer id) {
 
         Cliente cliente = clienteService.getClienteById(id);
+
         return new ResponseEntity(cliente, HttpStatus.OK);
     }
 
     @PutMapping
-    ResponseEntity updateCliente(@RequestBody Cliente cliente) throws IOException, ParseException {
+    ResponseEntity updateCliente(@RequestBody Cliente cliente){
+
         return new ResponseEntity(clienteService.atualizaCliente(cliente), HttpStatus.OK);
     }
 
@@ -51,6 +52,7 @@ public class ClienteController {
 
     @DeleteMapping
     ResponseEntity deleteCliente(@RequestParam Integer id) throws IOException {
+
         clienteService.deleteCliente(id);
         return new ResponseEntity(HttpStatus.OK);
     }
