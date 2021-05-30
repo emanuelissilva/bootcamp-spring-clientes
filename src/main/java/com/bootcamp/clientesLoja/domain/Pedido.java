@@ -8,6 +8,7 @@ public class Pedido {
     private List<Produto> produtos = new ArrayList<>();
     private double valorTotal;
 
+    public Pedido() {}
 
     public Pedido(int id, List<Produto> produtos, double valorTotal) {
         this.id = id;

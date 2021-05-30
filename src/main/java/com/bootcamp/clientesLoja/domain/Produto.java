@@ -7,6 +7,8 @@ public class Produto {
     private int quantidade;
     private Double preco;
 
+    public Produto(){}
+
     public Produto(int id, String descricao, String cor, int quantidade, Double preco) {
         this.id = id;
         this.descricao = descricao;

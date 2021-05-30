@@ -7,6 +7,7 @@ import com.bootcamp.clientesLoja.repositories.IClienteRepository;
 import com.bootcamp.clientesLoja.service.ClienteServiceInterface;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -33,5 +34,13 @@ public class ClienteServiceImpl implements ClienteServiceInterface {
         Pedido pedido = pedidoDTO.getPedido();
         Integer clienteId = pedidoDTO.getClienteId();
         return clienteRepository.addPedido(clienteId, pedido);
+    }
+
+    public Cliente atualizaCliente(Cliente cliente) {
+        return clienteRepository.update(cliente);
+    }
+
+    public void deleteCliente(Integer id) throws IOException {
+        clienteRepository.delete(id);
     }
 }

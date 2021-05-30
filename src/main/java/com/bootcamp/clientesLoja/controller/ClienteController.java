@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/cliente")
 public class ClienteController {
@@ -17,7 +19,7 @@ public class ClienteController {
     }
 
     @PostMapping
-    ResponseEntity insereCliente(@RequestBody Cliente cliente) {
+    ResponseEntity insereCliente(@RequestBody Cliente cliente){
 
         return new ResponseEntity(clienteService.salvaCliente(cliente), HttpStatus.OK);
     }
@@ -26,7 +28,14 @@ public class ClienteController {
     ResponseEntity getCliente(@RequestParam Integer id) {
 
         Cliente cliente = clienteService.getClienteById(id);
+
         return new ResponseEntity(cliente, HttpStatus.OK);
+    }
+
+    @PutMapping
+    ResponseEntity updateCliente(@RequestBody Cliente cliente){
+
+        return new ResponseEntity(clienteService.atualizaCliente(cliente), HttpStatus.OK);
     }
 
     @PostMapping("/pedido")
@@ -39,5 +48,12 @@ public class ClienteController {
     ResponseEntity getPedidosPorClienteId(@RequestParam Integer id) {
 
         return new ResponseEntity(clienteService.getPedidos(id), HttpStatus.OK);
+    }
+
+    @DeleteMapping
+    ResponseEntity deleteCliente(@RequestParam Integer id) throws IOException {
+
+        clienteService.deleteCliente(id);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }
