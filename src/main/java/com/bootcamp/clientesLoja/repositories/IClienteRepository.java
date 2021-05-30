@@ -2,20 +2,16 @@ package com.bootcamp.clientesLoja.repositories;
 
 import com.bootcamp.clientesLoja.domain.Cliente;
 import com.bootcamp.clientesLoja.domain.Pedido;
-import org.json.simple.parser.ParseException;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.List;
 
 public interface IClienteRepository {
     Cliente findById(Integer id);
 
-    Cliente save(Cliente cliente) throws IOException, ParseException;
+    Cliente save(Cliente cliente);
 
-    Cliente update(Cliente cliente) throws IOException, ParseException;
+    Cliente update(Cliente cliente);
 
-    void delete(Integer idCliente) throws IOException;
+    void delete(Integer idCliente);
 
     Pedido addPedido(Integer idCliente, Pedido pedido);
 
